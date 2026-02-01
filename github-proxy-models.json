@@ -1,0 +1,51 @@
+{
+  "providers": {
+    "github-proxy": {
+      "api": "openai-completions",
+      "baseUrl": "http://127.0.0.1:8000/v1",
+      "apiKey": "github-proxy-local",
+      "models": [
+        {
+          "id": "gpt-4o",
+          "name": "GPT-4o (GitHub)",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 128000,
+          "maxTokens": 16384
+        },
+        {
+          "id": "gpt-4o-mini",
+          "name": "GPT-4o Mini (GitHub)",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 128000,
+          "maxTokens": 16384
+        },
+        {
+          "id": "o1",
+          "name": "O1 (GitHub)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 200000,
+          "maxTokens": 100000
+        },
+        {
+          "id": "o1-mini",
+          "name": "O1 Mini (GitHub)",
+          "reasoning": true,
+          "input": ["text"],
+          "contextWindow": 128000,
+          "maxTokens": 65536
+        },
+        {
+          "id": "claude-3.5-sonnet",
+          "name": "Claude 3.5 Sonnet (GitHub)",
+          "reasoning": false,
+          "input": ["text", "image"],
+          "contextWindow": 200000,
+          "maxTokens": 8192
+        }
+      ]
+    }
+  }
+}

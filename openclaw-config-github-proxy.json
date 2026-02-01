@@ -1,0 +1,131 @@
+{
+  "meta": {
+    "lastTouchedVersion": "2026.1.30",
+    "lastTouchedAt": "2026-02-01T09:00:00.000Z"
+  },
+  "wizard": {
+    "lastRunAt": "2026-01-28T07:59:02.976Z",
+    "lastRunVersion": "2026.1.27-beta.1",
+    "lastRunCommand": "doctor",
+    "lastRunMode": "local"
+  },
+  "agents": {
+    "defaults": {
+      "model": {
+        "primary": "github-proxy/gpt-4o",
+        "fallbacks": ["anthropic/claude-opus-4-5"]
+      },
+      "models": {
+        "anthropic/claude-opus-4-5": {
+          "alias": "opus"
+        },
+        "github-proxy/gpt-4o": {
+          "alias": "gpt4o"
+        },
+        "github-proxy/gpt-4o-mini": {},
+        "github-proxy/o1": {},
+        "github-proxy/o1-mini": {},
+        "github-proxy/claude-3.5-sonnet": {}
+      },
+      "maxConcurrent": 4,
+      "subagents": {
+        "maxConcurrent": 8
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "simple",
+        "name": "simple",
+        "workspace": "/Users/bhupender.kumar/.openclaw/workspace-simple",
+        "agentDir": "/Users/bhupender.kumar/.openclaw/agents/simple/agent"
+      }
+    ]
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "github-proxy": {
+        "api": "openai-completions",
+        "baseUrl": "http://127.0.0.1:8000/v1",
+        "apiKey": "github-proxy-local",
+        "models": [
+          {
+            "id": "gpt-4o",
+            "name": "GPT-4o (GitHub)",
+            "reasoning": false,
+            "input": ["text", "image"],
+            "contextWindow": 128000,
+            "maxTokens": 16384
+          },
+          {
+            "id": "gpt-4o-mini",
+            "name": "GPT-4o Mini (GitHub)",
+            "reasoning": false,
+            "input": ["text", "image"],
+            "contextWindow": 128000,
+            "maxTokens": 16384
+          },
+          {
+            "id": "o1",
+            "name": "O1 (GitHub)",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 200000,
+            "maxTokens": 100000
+          },
+          {
+            "id": "o1-mini",
+            "name": "O1 Mini (GitHub)",
+            "reasoning": true,
+            "input": ["text"],
+            "contextWindow": 128000,
+            "maxTokens": 65536
+          },
+          {
+            "id": "claude-3.5-sonnet",
+            "name": "Claude 3.5 Sonnet (GitHub)",
+            "reasoning": false,
+            "input": ["text", "image"],
+            "contextWindow": 200000,
+            "maxTokens": 8192
+          }
+        ]
+      }
+    }
+  },
+  "tools": {},
+  "commands": {
+    "native": "auto",
+    "nativeSkills": "auto"
+  },
+  "channels": {
+    "whatsapp": {
+      "dmPolicy": "allowlist",
+      "allowFrom": [
+        "+919717267473"
+      ],
+      "groupPolicy": "allowlist",
+      "mediaMaxMb": 50,
+      "debounceMs": 0
+    }
+  },
+  "gateway": {
+    "auth": {
+      "token": "mydevtoken"
+    },
+    "mode": "local"
+  },
+  "plugins": {
+    "entries": {
+      "whatsapp": {
+        "enabled": true
+      }
+    }
+  },
+  "messages": {
+    "ackReactionScope": "group-mentions"
+  }
+}
